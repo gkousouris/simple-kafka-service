@@ -82,7 +82,10 @@ public class KafkaConsumerService {
     // Aggregate all results in a map the response map
     Map<String, Object> response = new HashMap<>();
     response.put("topic", topicName);
-    response.put("offset", offset);
+    if (offset == -1)
+      response.put("offset", "latest");
+    else
+      response.put("offset", offset);
     response.put("count", count);
     response.put("partitions", partitionMessages);
 
