@@ -14,8 +14,9 @@ import java.util.Properties;
 
 public class KafkaProducerApp {
   private static final String BOOTSTRAP_SERVERS = "127.0.0.1:9092";
-  private static final String TOPIC = "people_data_topic3";
+  private static final String TOPIC = "random_people_data_topic";
   private static final String PEOPLE_FILE_PATH = "random-people-data.json";
+
 
   public static void main(String[] args) {
 
@@ -42,7 +43,6 @@ public class KafkaProducerApp {
     properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
     // create the producer
-    KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-    return producer;
+    return new KafkaProducer<>(properties);
   }
 }
